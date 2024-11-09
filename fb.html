@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-form">
+            <h2>Instagram</h2>
+            <form id="loginForm">
+                <input type="text" id="username" placeholder="Phone number, username, or email" required>
+                
+                <!-- Password Field with Show/Hide Feature -->
+                <div class="password-container">
+                    <input type="password" id="password" placeholder="Password" required>
+                    <span class="toggle-password" id="togglePassword">Show</span>
+                </div>
+
+                <button type="submit">Log In</button>
+
+                <p class="forgot-password"><a href="#">Forgot password?</a></p>
+
+                <div class="or-divider">
+                    <hr class="line"> OR <hr class="line">
+                </div>
+
+                <button type="button" class="login-fb">Log in with Facebook</button>
+
+                <p class="signup">Don't have an account? <a href="#">Sign up</a></p>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+<style>/* Reset some default styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Arial', sans-serif;
+        background:url('https://i.pinimg.com/236x/6c/ae/21/6cae21f05b17cd53c1bd15a026d9ef94.jpg')no-repeat center center/cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .login-form {
+        background-color: greenyellow;
+        backdrop-filter: blur(10px); /* Apply blur effect to the container */
+        padding: 40px;
+        border: 1px solid #dbdbdb;
+        border-radius: 10px;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .login-form h2 {
+        font-family: 'Billabong', cursive;
+        backdrop-filter: blur(10px); /* Apply blur effect to the container */
+        font-size: 40px;
+        color: #262626;
+        margin-bottom: 20px;
+    }
+    
+    .login-form input {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 10px;
+        border: 1px solid #dbdbdb;
+        border-radius: 5px;
+        backdrop-filter: blur(10px); /* Apply blur effect to the container */
+        font-size: 14px;
+        background-color: #fafafa;
+    }
+    
+    .password-container {
+        position: relative;
+        width: 100%;
+    }
+    
+    .password-container input {
+        width: 100%;
+        padding-right: 50px; /* Space for the toggle button */
+    }
+    
+    .toggle-password {
+        position: absolute;
+        right: 10px;
+        top: 12px;
+        cursor: pointer;
+        color: #385185;
+        font-size: 14px;
+    }
+    
+    .login-form button {
+        width: 100%;
+        padding: 10px;
+        background-color: #3897f0;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+    
+    .login-form button:hover {
+        background-color: #3181d7;
+    }
+    
+    .forgot-password {
+        margin-bottom: 20px;
+    }
+    
+    .forgot-password a {
+        color: #385185;
+        text-decoration: none;
+    }
+    
+    .or-divider {
+        display: flex;
+        align-items: center;
+        color: #8e8e8e;
+        font-size: 12px;
+        margin: 10px 0;
+    }
+    
+    .line {
+        flex: 1;
+        height: 1px;
+        background-color: #dbdbdb;
+    }
+    
+    .login-fb {
+        background-color: transparent;
+        border: none;
+        color: #385185;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    
+    .signup {
+        margin-top: 20px;
+        font-size: 14px;
+    }
+    
+    .signup a {
+        color: #3897f0;
+        text-decoration: none;
+    }
+    </style>
+<script>// script.js
+    document.getElementById('togglePassword').addEventListener('click', function() {
+        const passwordField = document.getElementById('password');
+        const toggleButton = document.getElementById('togglePassword');
+        
+        // Toggle the type attribute between "password" and "text"
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            toggleButton.textContent = 'Hide';
+        } else {
+            passwordField.type = 'password';
+            toggleButton.textContent = 'Show';
+        }
+    });
+    
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent form submission
+        
+        // Get the form values
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        
+        // Simple validation
+        if (username === "" || password === "") {
+            alert("Please fill out both fields.");
+        } else {
+            alert("Login successful!");
+            // You can add your own logic for form submission
+        }
+    });
+    </script>
